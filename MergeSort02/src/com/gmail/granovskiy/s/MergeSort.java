@@ -1,21 +1,18 @@
 package com.gmail.granovskiy.s;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class MergeSort {
-    public static void main(String[] args) {
+    public static void process(int[] array) {
         try {
-            int[] array = getArray();                        //  getting array
-            mergeSort(array, 0, array.length - 1);  //  sorting array
-            printArray(array);                               //  printing array
+            mergeSort(array, 0, array.length - 1);
+            printArray(array);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void mergeSort(int[] array, int left, int right) {
+    private static void mergeSort(int[] array, int left, int right) throws IOException{
         if (left < right) {
             int mid = left + (right - left) / 2;
             mergeSort(array, left, mid);
@@ -60,17 +57,5 @@ public class MergeSort {
         for (int element : array) {
             System.out.print(element + " ");
         }
-    }
-
-    private static int[] getArray() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the size of the array: ");
-        int count = Integer.parseInt(bufferedReader.readLine());
-        int[] arr = new int[count];
-        System.out.println("Enter elements of the array: ");
-        for (int i = 0; i < count; i++) {
-            arr[i] = Integer.parseInt(bufferedReader.readLine());
-        }
-        return arr;
     }
 }
