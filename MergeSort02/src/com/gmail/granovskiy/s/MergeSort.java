@@ -4,15 +4,11 @@ import java.io.IOException;
 
 public class MergeSort {
     public static void process(int[] array) {
-        try {
-            mergeSort(array, 0, array.length - 1);
-            printArray(array);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mergeSort(array, 0, array.length - 1);
+        printArray(array);
     }
 
-    private static void mergeSort(int[] array, int left, int right) throws IOException{
+    private static void mergeSort(int[] array, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
             mergeSort(array, left, mid);
